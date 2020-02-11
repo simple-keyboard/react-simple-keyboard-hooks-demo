@@ -16,7 +16,7 @@ function App() {
   };
 
   const handleShift = () => {
-    let newLayoutName = layout === "default" ? "shift" : "default";
+    const newLayoutName = layout === "default" ? "shift" : "default";
     setLayout(newLayoutName);
   };
 
@@ -30,7 +30,7 @@ function App() {
   };
 
   const onChangeInput = event => {
-    let input = event.target.value;
+    const input = event.target.value;
     setInput(input);
     keyboard.current.setInput(input);
   };
@@ -40,13 +40,13 @@ function App() {
       <input
         value={input}
         placeholder={"Tap on the virtual keyboard to start"}
-        onChange={e => onChangeInput(e)}
+        onChange={onChangeInput}
       />
       <Keyboard
         keyboardRef={r => (keyboard.current = r)}
         layoutName={layout}
-        onChange={input => onChange(input)}
-        onKeyPress={button => onKeyPress(button)}
+        onChange={onChange}
+        onKeyPress={onKeyPress}
       />
     </div>
   );
